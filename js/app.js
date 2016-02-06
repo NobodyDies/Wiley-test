@@ -30,7 +30,8 @@
 			todos: todoStorage.fetch(),
 			newTodo: '',
 			editedTodo: null,
-			visibility: 'all'
+			visibility: 'all',
+			order: -1
 		},
 
 		// watch todos change for localStorage persistence
@@ -51,16 +52,6 @@
 			},
 			remaining: function () {
 				return filters.active(this.todos).length;
-			},
-			allDone: {
-				get: function () {
-					return this.remaining === 0;
-				},
-				set: function (value) {
-					this.todos.forEach(function (todo) {
-						todo.completed = value;
-					});
-				}
 			}
 		},
 
